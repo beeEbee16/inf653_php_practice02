@@ -60,6 +60,7 @@ $grade = "10";
    Output "John" from the array
 */
 // Create the array on the next line.
+$ledzep = ['Robert', 'JPJ', 'Jimmy', 'John'];
 
 
 
@@ -69,7 +70,7 @@ $grade = "10";
    Output the variable arrlength to display the correct length.
 */
 // Create the variable on the next line.
-
+$arrlength = count($ledzep);
 
 
 /* 08: Loop through the ledzep array with a for loop.
@@ -92,7 +93,12 @@ $grade = "10";
    "Van Halen band members include Dave, Eddie, Michael, and Alex."
 */
 // Create the array on the next line.
-
+$vh = array(
+   'vocals' => 'Dave',
+   'guitar' => 'Eddie',
+   'bass' => 'Michael',
+   'drums' => 'Alex'
+);
 
 /*10: Loop through the vh associative array from #9 above with foreach.
    Output "Key: vocals, Value: Dave" and repeat for each key/value pair. 
@@ -109,7 +115,9 @@ $grade = "10";
   Remember to call the function in the output section, too.
 */
 // Create the function below.
-
+function simpleMsg() {
+   echo 'Here is a simple message';
+};
 
 /*12: Create a function named hello that has a
    $name parameter. If you pass in the argument 
@@ -130,7 +138,9 @@ $myName = "Walt";
 /* Create the function below. Call the function and 
 pass in the $myName value as an argument in the output 
 section */ 
-
+function hello($name) {
+   echo 'Hello ' . $name . '!';
+};
 
 /*13: Create a function named addTwo that accepts
   two parameters, $x and $y, and returns their sum.
@@ -140,7 +150,9 @@ section */
   Output the value of $myTotal.
 */
 // Create the function and variable below.
-
+function addTwo($x, $y) {
+   return $x + $y;
+}
 
 /*14: Create a function named getFirst that accepts
   an $array parameter and returns the first value
@@ -153,7 +165,9 @@ section */
 $blt = array("bacon", "lettuce", "tomato", "toast", "mayo");
 // Don't change the value of $blt above
 // Create the function and variable below.
-
+function getFirst ($array) {
+   return $array[0];
+};
 
 /*15: Create a function named getLast that accepts
   an $array parameter and returns the last value
@@ -164,7 +178,9 @@ $blt = array("bacon", "lettuce", "tomato", "toast", "mayo");
   Output the value of $myLast.
 */
 // Create the function and variable below.
-
+function getLast ($array) {
+   return end($array);
+};
 
 ?>
 
@@ -198,20 +214,86 @@ $blt = array("bacon", "lettuce", "tomato", "toast", "mayo");
               }
             ?></li>
             
-            <li id="2"><?php /* #2 output here */ ?></li>
-            <li id="3"><?php /* #3 output here */ ?></li>
-            <li id="4"><?php /* #4 output here */ ?></li>
-            <li id="5"><?php /* #5 output here */ ?></li>
-            <li id="6"><?php /* #6 output here */ ?></li>
-            <li id="7"><?php /* #7 output here */ ?></li>
-            <li id="8"><?php /* #8 output here */ ?></li>
-            <li id="9"><?php /* #9 output here */ ?></li>
-            <li id="10"><?php /* #10 output here */ ?></li>
-            <li id="11"><?php /* #11 output here */ ?></li>
-            <li id="12"><?php /* #12 output here */ ?></li>
-            <li id="13"><?php /* #13 output here */ ?></li>
-            <li id="14"><?php /* #14 output here */ ?></li>
-            <li id="15"><?php /* #15 output here */ ?></li>
+            <li id="2"><?php if ($y > 5) {
+               echo 'y is greater than 5';
+            } else {
+               echo 'y is less than or equal to 5';
+            }
+             ?></li>
+            <li id="3"><?php if ($z > 5) {
+               echo 'z is greater than 5';
+            } elseif ($z === 5) {
+               echo 'z is equal to 5';
+            } else {
+               echo 'z is less than 5';
+            }
+            ?></li>
+            <li id="4"><?php switch ($w) {
+               case 'sunny':
+                  echo 'Great weather!';
+                  break;
+               case 'cloudy':
+                   echo 'Bad weather';
+                  break;
+               default:
+                  echo 'Average weather';
+            } 
+            ?></li>
+            <li id="5"><?php switch ($grade) {
+               case '9':
+                  echo 'Freshman';
+                  break;
+               case '10':
+                  echo 'Sophomore';
+                  break;
+               case '11':
+                  echo 'Junior';
+                  break;
+               case '12':
+                  echo 'Senior';
+                  break;
+               default:
+                  echo 'Not in High School';
+            } 
+            ?></li>
+            <li id="6"><?php echo $ledzep[3]; ?></li>
+            <li id="7"><?php echo $arrlength; ?></li>
+            <li id="8"><?php for ($counter = 0; $counter < 4; $counter++) {
+               echo 'Hello, ' . $ledzep[$counter] . '<br>';
+            } 
+            ?></li>
+            <li id="9"><?php 
+               echo 'Van Halen band members include ';
+               $count = count($vh);
+               $counter = 0;
+               foreach ($vh as $x => $y) {
+                  $counter++;
+                  if ($counter === $count) {
+                     echo 'and ' . $y . '.';
+                  } else {
+                     echo $y . ', ';
+                  }
+               }
+            ?></li>
+            <li id="10"><?php 
+               foreach($vh as $x => $y) {
+                  echo 'Key: ' . $x . ', Value: ' . $y . '<br>';
+               };
+            ?></li>
+            <li id="11"><?php echo simpleMsg(); ?></li>
+            <li id="12"><?php echo hello('Walt'); ?></li>
+            <li id="13"><?php  
+               $myTotal = addTwo(15, 3);
+               echo $myTotal;
+            ?></li>
+            <li id="14"><?php 
+               $myFirst = getFirst($blt);
+               echo $myFirst;
+            ?></li>
+            <li id="15"><?php 
+               $myLast = getLast($blt);
+               echo $myLast;
+            ?></li>
         </ol>
     </main>
 
